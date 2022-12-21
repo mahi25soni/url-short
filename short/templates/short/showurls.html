@@ -1,0 +1,50 @@
+{% extends 'short/base.html' %}
+{% block base %}
+
+<div class="container-fluid mt-5 text-center" style="align-items: center;">
+
+    <div style="display: flex" class="mb-4" > 
+        <div style="flex: 2;"><strong>Website</strong></div>
+        <div style="flex: 8;" class="text-truncate"><strong>Your Link</strong></div>
+        <div style="flex: 5;" ><strong>Shorted Link</strong></div>
+        <div style="flex: 1;"><strong>Remove</strong></div>
+    </div>
+    {% for x in data %}
+    <div style="display: flex; align-items: center;" class="mt-2"> 
+        <div style="flex: 2;">{{x.websitename}}</div>
+        <div style="flex: 8;" class="text-truncate">{{x.url}}</div>
+        <div style="flex: 5;">
+            <a href="#" id="returnurl" class="mymessage">{{x.shorted}}</a>
+            <button class="btn btn-outline-dark btn-sm ms-1 geturltext">Copy</button>
+        </div>
+        <div style="flex: 1;">
+            <a href="{% url 'removeurl' pk=x.id %}"><button class="btn btn-outline-danger btn-sm">Remove</button></a>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+<script>
+    copylist = Array.from(document.getElementsByClassName('geturltext'))
+    copylist.forEach(element => {
+        element.addEventListener('click',()=>{
+            thaturl = element.previousElementSibling.innerText
+            navigator.clipboard.writeText(thaturl);
+            location.reload()
+        })
+        
+    });
+
+    urlist = Array.from(document.getElementsByClassName('mymessage'))
+    urlist.forEach(element => {
+        element.addEventListener('click',()=>{
+            url = element.innerText
+            console.log(url)
+            window.open(url, '_blank');
+        })
+        
+    });
+
+
+</script>
+{% endblock %}

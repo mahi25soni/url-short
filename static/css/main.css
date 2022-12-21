@@ -1,0 +1,19 @@
+.bg-new{
+    background-color: grey;
+    font-weight: 600;
+}
+
+.container{
+    margin: 150px auto;
+}
+input::placeholder {             
+    text-align: center;
+}
+input{
+    margin-top: 15px;
+}
+.box{
+    background-color: rgb(168, 164, 164);
+    box-shadow: rgb(88, 89, 87) 0px 0px 15px 0px;
+    border-radius: 20px;
+}
