@@ -11,5 +11,7 @@ function copyit() {
     var copyText = document.getElementById("mymessage")
     copyText.innerHTML
     navigator.clipboard.writeText(copyText.innerHTML);
-    location.reload()
+    setTimeout(() => {
+        document.location.reload();
+      }, 000);
 }

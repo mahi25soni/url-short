@@ -30,7 +30,9 @@
         element.addEventListener('click',()=>{
             thaturl = element.previousElementSibling.innerText
             navigator.clipboard.writeText(thaturl);
-            location.reload()
+            setTimeout(() => {
+                document.location.reload();
+                }, 000);
         })
         
     });
