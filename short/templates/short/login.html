@@ -1,9 +1,9 @@
 {% extends 'short/base.html' %}
 {% block base %}
 
-<div class="container" style="width: 60%;">
+<div class="container" style="width: 70%;">
     <div class="row">
-        <div class="col-4 offset-4 text-center box">
+        <div class="col-sm-12 col-md-4 offset-md-4">
             <form action="" method="POST">
                 {% csrf_token %}
                 {% for data in form %}
@@ -15,9 +15,12 @@
                         {{ error }}
                     {% endfor %}
                 {% endif %}
-        
-                <input type="submit" value="Login" class="btn btn-primary mb-3">
-                <p>Dont't have a acccount? <a href="{% url 'signup' %}" class="btn btn-primary"> SignUp</a></p>
+                <div class="d-grid">
+                    <input type="submit" value="Login" class="btn btn-dark btn-block mb-3">
+                </div>
+                <div class="text-center">
+                    <p>Dont't have a acccount? <a href="{% url 'signup' %}" class="btn btn-primary btn-sm"> SignUp</a></p>
+                </div>
             </form>
 
         </div>
